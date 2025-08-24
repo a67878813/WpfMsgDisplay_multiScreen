@@ -9,4 +9,6 @@ message2:NA
 message3:NA
 }
 
-display serially
+display serially at right bottom corner.
+
+support multiscreen.
