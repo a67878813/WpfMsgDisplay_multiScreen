@@ -1,0 +1,105 @@
+﻿<Window x:Class="WpfMsgDisplay.NotificationWindow"
+       
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="mainNotification" 
+        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMsgDisplay"
+        mc:Ignorable="d"
+        Title="NotificationWindow1" Height="176" Width="800"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStartupLocation="Manual" ShowInTaskbar="False"
+        >
+
+
+
+    <Window.Resources>
+
+
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+
+
+
+
+
+        <Storyboard x:Key="FadeInStoryboard">
+            <DoubleAnimation Storyboard.TargetName="mainNotification"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.3" To="0.9" Duration="0:0:0.4"/>
+        </Storyboard>
+        <Storyboard x:Key="FadeOutStoryboard">
+            <DoubleAnimation Storyboard.TargetName="mainNotification"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.9" To="0.0" Duration="0:0:3"/>
+        </Storyboard>
+        <Storyboard x:Key="FlashStoryboard">
+            <DoubleAnimation Storyboard.TargetName="mainNotification"
+                         Storyboard.TargetProperty="Opacity"
+                         To="0.5" Duration="0:0:0.3"/>
+
+            <DoubleAnimation Storyboard.TargetName="mainNotification"
+                         Storyboard.TargetProperty="Opacity"
+                         To="0.9" Duration="0:0:0.5" BeginTime="0:0:1.5"/>
+            
+        </Storyboard>
+    </Window.Resources>
+
+
+
+
+
+
+
+
+
+    <Grid Margin="0,0,0,40" >
+
+        <TextBox x:Name="MessageText1"  IsEnabled="False" 
+                 HorizontalAlignment="Center"
+                 TextWrapping="Wrap" 
+                 FontFamily="Microsoft YaHei"
+                 Foreground="#FFFF1900"
+                 FontSize="22"
+                    BorderThickness="0"
+                 Text="这是一条提示消息111" 
+                 VerticalAlignment="Top" Width="780" Height="55" Opacity="1" 
+                 Margin="0,5,0,0"
+                 
+                 Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+        <TextBox x:Name="MessageText2"  IsEnabled="False" 
+            HorizontalAlignment="Center"
+            TextWrapping="Wrap" 
+            FontFamily="Microsoft YaHei"
+            Foreground="#FFF5FF00"
+            FontSize="22"
+                 BorderThickness="0"
+            Text="这是一条提示消息222" 
+            VerticalAlignment="Top" Width="780" Height="55" Opacity="1" Background="{x:Null}" 
+                 Margin="0,55,0,0" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+        <TextBox x:Name="MessageText3"  IsEnabled="False" 
+            HorizontalAlignment="Center"
+            TextWrapping="Wrap" 
+            FontFamily="Microsoft YaHei"
+            Foreground="#FF5CFF00"
+            FontSize="22"
+                 BorderThickness="0"
+            Text="这是一条提示消息333" 
+            VerticalAlignment="Top" Width="780" Height="55" Opacity="1" Background="{x:Null}" 
+                 Margin="0,105,0,0" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Grid.RowSpan="2"/>
+    </Grid>
+</Window>
